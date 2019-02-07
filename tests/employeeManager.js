@@ -55,7 +55,7 @@ module.exports = {
     manager
         .click('@deleteButton')   
     browser   
-        .keys(browser.Keys.ENTER)
+        .acceptAlert()
     manager
         .waitForElementPresent('@ID', 5000)
 }
