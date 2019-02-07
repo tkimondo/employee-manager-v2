@@ -24,18 +24,16 @@ module.exports = {
         manager
             .clickEmployee('New Employee')
             .expect.element('@cardTitle').text.to.contain('New Employee').before(500)
-    /*
-        },
-    'It can delete an employee': browser => {
 
-    },
-    'It can edit a new employee': browser => {
-            browser.pause(5000);
-        manager
-            .click('@addButton')
-    */        
         editTest(manager, 'New Employee', {name:'Test New', phone: '0000000000', email: 'test@new.com', title: 'Engineer'}, 'Do not Delete me')
 
+    },
+    'Search for an existing employee': browser => {
+        manager
+            .waitForElementPresent('@searchField', 5000)
+            .setValue('@searchField', 'Test New')
+            .waitForElementPresent('@employeeList', 5000)
+            .expect.element('@employeeList').text.to.contain('Test New').before(500)
     },
     'It can edit an existing employee': browser => {
             browser.pause(1000)
@@ -56,6 +54,7 @@ module.exports = {
         .click('@deleteButton')   
     browser   
         .acceptAlert()
+        .pause(2000)
     manager
         .waitForElementPresent('@ID', 5000)
 }

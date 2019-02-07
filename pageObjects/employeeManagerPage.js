@@ -37,6 +37,11 @@ module.exports = {
     elements: {
         ID: '#employeeID',
         titleText: '.titleText',
+        searchField: 'input[name="searchBox"]',
+        employeeList: {
+            selector: '//li[".listText"] [2]',
+            locateStrategy: 'xpath'
+        },
         addButton: 'li[name="addEmployee"]',
         newEmployee: {
             selector: '//li[text()="New Employee"]',
